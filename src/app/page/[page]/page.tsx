@@ -32,7 +32,7 @@ const readLatestIssue = async () =>
     limit: 1
   })))[0];
 
-export const getData = (async (page: number) => {
+const getData = (async (page: number) => {
   const articles = await readArticles(page);
 
   const latestIssue = await readLatestIssue();
