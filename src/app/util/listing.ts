@@ -5,7 +5,7 @@ export const perPage = 10;
 
 export const readArticles = (page: number) =>
     directus.request(readItems("articles", {
-      fields: ["id", "title", "author", "issue", "column", "categories", "published_at"],
+      fields: ["id", "title", "author", "issue", "column", "summary", "categories", "published_at"],
       filter: {
         status: {
           _eq: "published"
