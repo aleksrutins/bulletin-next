@@ -3,10 +3,11 @@ import { readItems, aggregate } from "@directus/sdk";
 
 export const perPage = 10;
 
-export const readArticles = (page: number) =>
+export const readArticles = (page: number, filter = {}) =>
     directus.request(readItems("articles", {
       fields: ["id", "title", "author", "issue", "column", "summary", "categories", "published_at"],
       filter: {
+        ...filter,
         status: {
           _eq: "published"
         }
@@ -31,8 +32,8 @@ export const readLatestIssue = async () =>
 
 export type IssueListing = ReturnType<typeof readLatestIssue> extends Promise<infer T> ? T : never;
   
-export const getData = (async (page: number) => {
-    const articles = await readArticles(page);
+export const getData = (async (page: number, articlesFilter = {}) => {
+    const articles = await readArticles(page, articlesFilter);
   
     const latestIssue = await readLatestIssue();
   
