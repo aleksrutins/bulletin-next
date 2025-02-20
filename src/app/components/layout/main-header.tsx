@@ -11,7 +11,7 @@ export default function MainHeader() {
                 <Image src={masthead} alt="The Bulldog Bulletin" width="247" height="32" placeholder='blur'/>
             </Link>
             <nav className="flex flex-row gap-3 [a]:block [a]:no-underline">
-                {headerCategories.map(cat => <a key={} href={`/c/${cat}`}>{cat}</a>)}
+                {headerCategories.map(cat => <a key={cat} href={`/c/${cat}`}>{cat}</a>)}
             </nav>
         </header>
     )
